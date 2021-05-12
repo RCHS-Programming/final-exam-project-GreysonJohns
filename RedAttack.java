@@ -14,6 +14,17 @@ public class RedAttack extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        attack();
     }    
+    
+    public void attack()
+    {
+        //Makes the dot move in a basic forward movement Space Invaders style.
+        setLocation(getX() + 50, getY());
+        
+        if (getX() > 798)
+        {
+            getWorld().removeObject(this);
+        }
+    }
 }

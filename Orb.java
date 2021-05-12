@@ -13,17 +13,17 @@ public class Orb extends Actor
     private boolean isRightPress;
     private boolean isLeftPress;
     
-    private boolean isOrbPurple;
-    private boolean isOrbRed;
-    private boolean isOrbYellow;
-    private boolean isOrbGreen;
-    
+    private boolean isWPress;
+    private boolean isSPress;
     public Orb()
     {
         isUpPress = false;
         isDownPress = false;
         isRightPress = false;
         isLeftPress = false;
+        
+        isWPress = false;
+        isSPress = false;
     }
 
     /**
@@ -51,7 +51,7 @@ public class Orb extends Actor
         }
         
         //Check for the down key
-        if(isDownPress == false && Greenfoot.isKeyDown("down") && getY() < 540)
+        if(isDownPress == false && Greenfoot.isKeyDown("down") && getY() < 350)
         {
             setLocation(getX(), getY() + 50);
             isDownPress = true;
@@ -92,9 +92,26 @@ public class Orb extends Actor
     
     public void attacks()
     {
-        if(Greenfoot.isKeyDown("W"))
+        if(isWPress == false && Greenfoot.isKeyDown("W"))
         {
             getWorld().addObject(new RedAttack(), getX() + 50, getY());
+            isWPress = true;
         }  
+        
+        if(isWPress && !Greenfoot.isKeyDown("W"))
+        {
+            isWPress = false;
+        }
+        
+        if( isSPress == false && Greenfoot.isKeyDown("S"))
+        {
+            getWorld().addObject(new GreenAttack(), getX() + 50, getY());
+            isSPress = true;
+        }
+        
+        if(isSPress && !Greenfoot.isKeyDown("S"))
+        {
+            isSPress = false;
+        }
     }
 }
