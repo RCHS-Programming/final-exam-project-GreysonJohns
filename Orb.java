@@ -15,6 +15,7 @@ public class Orb extends Actor
     
     private boolean isWPress;
     private boolean isSPress;
+    private boolean isDPress;
     public Orb()
     {
         isUpPress = false;
@@ -24,6 +25,7 @@ public class Orb extends Actor
         
         isWPress = false;
         isSPress = false;
+        isDPress = false;
     }
 
     /**
@@ -92,6 +94,7 @@ public class Orb extends Actor
     
     public void attacks()
     {
+        // Bullet
         if(isWPress == false && Greenfoot.isKeyDown("W"))
         {
             getWorld().addObject(new RedAttack(), getX() + 50, getY());
@@ -103,6 +106,7 @@ public class Orb extends Actor
             isWPress = false;
         }
         
+        // Bot
         if( isSPress == false && Greenfoot.isKeyDown("S"))
         {
             getWorld().addObject(new GreenAttack(), getX() + 50, getY());
@@ -112,6 +116,18 @@ public class Orb extends Actor
         if(isSPress && !Greenfoot.isKeyDown("S"))
         {
             isSPress = false;
+        }
+        
+        // Bomb
+        if(isDPress == false && Greenfoot.isKeyDown("D"))
+        {
+            getWorld().addObject(new YellowAttack(), getX() + 50, getY());
+            isDPress = true;
+        } 
+        
+        if(isDPress && !Greenfoot.isKeyDown("D"))
+        {
+            isDPress = false;
         }
     }
 }

@@ -19,5 +19,7 @@ public class Tutorial extends World
         super(800, 400, 1); 
         
         addObject(new Orb(), 425, 325);
+        
+        addObject(new Enemy1(), 775, 325);
     }
 }
