@@ -17,10 +17,11 @@ public class Enemy1 extends Actor
     public void act() 
     {
         moveTimer();
+        delete();
         wait = wait - 1;
     }    
     
-        public void moveTimer()
+    public void moveTimer()
     {
         //Makes the bot move forward periodically.
         if(wait < 1) 
@@ -29,8 +30,16 @@ public class Enemy1 extends Actor
         {
             setLocation(getX() - 50, getY());
             
-            wait = 100;
+            wait = 35;
         }
+        }
+    }
+    
+    public void delete()
+    {
+        if(getX() < 50)
+        {
+            getWorld().removeObject(this);
         }
     }
 }
