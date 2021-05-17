@@ -1,17 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Enemy1 here.
+ * Write a description of class Enemy3 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy1 extends Actor
+public class Enemy3 extends Actor
 {
-    private char axis;
     private int wait;
     /**
-     * Act - do whatever the Enemy1 wants to do. This method is called whenever
+     * Act - do whatever the Enemy3 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
@@ -30,16 +29,16 @@ public class Enemy1 extends Actor
         {
             setLocation(getX() - 50, getY());
             
-            wait = 50;
+            wait = 25;
         }
         }
     }
     
     public void delete()
     {
-        if(getX() < 25  || isTouching(RedAttack.class))
+        if(getX() < 25  || isTouching(YellowAttack.class))
         {
-            removeTouching(RedAttack.class);
+            removeTouching(YellowAttack.class);
             getWorld().removeObject(this);
         }
     }

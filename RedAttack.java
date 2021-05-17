@@ -27,4 +27,6 @@ public class RedAttack extends Actor
             getWorld().removeObject(this);
         }
     }
+    
+
 }

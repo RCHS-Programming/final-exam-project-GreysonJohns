@@ -18,7 +18,7 @@ public class Intro extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
-        showText("Orbus The Beginning", 300, 100);
+        showText("Orbus Defense", 300, 100);
         showText("Press ENTER to Start", 300, 200);
         
     }
