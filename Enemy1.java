@@ -30,15 +30,22 @@ public class Enemy1 extends Actor
         {
             setLocation(getX() - 50, getY());
             
-            wait = 50;
+            wait = 75;
         }
         }
     }
     
     public void delete()
     {
-        if(getX() < 25  || isTouching(RedAttack.class))
+        if(getX() < 25)
         {
+            ((Tutorial)getWorld()).loseLife(1);
+            getWorld().removeObject(this);
+        }
+        
+        else if(isTouching(RedAttack.class))
+        {
+            ((Tutorial)getWorld()).gainScore(1);
             removeTouching(RedAttack.class);
             getWorld().removeObject(this);
         }

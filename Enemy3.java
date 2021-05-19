@@ -36,8 +36,15 @@ public class Enemy3 extends Actor
     
     public void delete()
     {
-        if(getX() < 25  || isTouching(YellowAttack.class))
+        if(getX() < 25)
         {
+            ((Tutorial)getWorld()).loseLife(5);
+            getWorld().removeObject(this);
+        }
+        
+        else if(isTouching(YellowAttack.class))
+        {
+            ((Tutorial)getWorld()).gainScore(5);
             removeTouching(YellowAttack.class);
             getWorld().removeObject(this);
         }
