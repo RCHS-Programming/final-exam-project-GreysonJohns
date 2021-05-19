@@ -25,7 +25,7 @@ public class Tutorial extends World
         // Create a new world with 800x400 cells with a cell size of 1x1 pixels.
         super(800, 400, 1); 
         
-        lives = 100;
+        lives = 50;
         score = 0;
         
         addObject(new Orb(), 425, 325);
@@ -50,21 +50,21 @@ public class Tutorial extends World
         {
             addObject(new Enemy1(), 775, enemySpawn[Greenfoot.getRandomNumber(8)]);
             
-            redSpawnTimer = Greenfoot.getRandomNumber(200) + 25;
+            redSpawnTimer = Greenfoot.getRandomNumber(200) + 15;
         }
         
         if(greenSpawnTimer <=0)
         {
             addObject(new Enemy2(), 776, enemySpawn[Greenfoot.getRandomNumber(8)]);
             
-            greenSpawnTimer = Greenfoot.getRandomNumber(300) + 50;
+            greenSpawnTimer = Greenfoot.getRandomNumber(300) + 25;
         }
         
         if (yellowSpawnTimer <=0)
         {
             addObject(new Enemy3(), 775, enemySpawn[Greenfoot.getRandomNumber(8)]);
             
-            yellowSpawnTimer = Greenfoot.getRandomNumber(400) + 75;
+            yellowSpawnTimer = Greenfoot.getRandomNumber(400) + 5;
         }
     }
     
@@ -80,7 +80,7 @@ public class Tutorial extends World
     
     public void lose()
     {
-        if(lives < 0)
+        if(lives <= 0)
         {
             Greenfoot.setWorld(new LosingScreen(score));
         }
