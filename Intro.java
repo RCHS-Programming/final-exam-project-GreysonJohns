@@ -19,8 +19,9 @@ public class Intro extends World
         super(600, 400, 1); 
         
         showText("Orbus Defense", 300, 100);
-        showText("Press ENTER to Start", 300, 200);
-        
+        showText("Press the arrow keys to move ", 300, 200);
+        showText("Press WSD to match the colored attacks to the colored balloons", 300, 250);
+        showText("Press ENTER to Start", 300, 350);
     }
     
     public void act()

@@ -20,6 +20,16 @@ public class LosingScreen extends World
         
         showText("Game Over", 300, 200);
         
+        showText("Press ENTER to Retry", 300, 250);
+        
         showText("Score: " + score, 300, 300);
+    }
+    
+    public void act()
+    {
+        if(Greenfoot.isKeyDown("ENTER"))
+        {
+            Greenfoot.setWorld(new Tutorial());
+        }
     }
 }
